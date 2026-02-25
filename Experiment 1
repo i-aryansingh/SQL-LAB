@@ -1,0 +1,144 @@
+# DBMS Lab – Experiment 1  
+
+## Aim  
+To create a database and create tables with appropriate constraints.
+
+---
+
+## Problem Statement  
+1. Create a database named `2CSE18_0151`.  
+2. Create EMPLOYEE and DEPARTMENT tables with given constraints.
+
+---
+
+# Step 1: Create Database
+
+### Query
+```sql
+CREATE DATABASE 2CSE18_0151;
+```
+
+### Use Database
+```sql
+USE 2CSE18_0151;
+```
+
+### Output  
+Database created and selected successfully.
+
+---
+
+# Step 2: Create DEPARTMENT Table
+
+### Query
+```sql
+CREATE TABLE DEPARTMENT (
+    DEPTNO INT(2) PRIMARY KEY,
+    DNAME VARCHAR(15) NOT NULL
+);
+```
+
+### Output  
+Table DEPARTMENT created successfully.
+
+---
+
+# Step 3: Create EMPLOYEE Table
+
+### Query
+```sql
+CREATE TABLE EMPLOYEE (
+    EMPNO INT(4) PRIMARY KEY,
+    ENAME VARCHAR(20) NOT NULL,
+    JOB VARCHAR(20),
+    MGR INT(4),
+    HIREDATE DATE,
+    SAL DECIMAL(10,2),
+    COMM DECIMAL(7,2),
+    DEPTNO INT(2),
+    FOREIGN KEY (DEPTNO) REFERENCES DEPARTMENT(DEPTNO)
+);
+```
+
+### Output  
+Table EMPLOYEE created successfully.
+
+---
+
+# Step 4: Insert Values into DEPARTMENT Table
+
+### Query
+```sql
+INSERT INTO DEPARTMENT VALUES (10, 'RESEARCH');
+INSERT INTO DEPARTMENT VALUES (20, 'ACCOUNTING');
+INSERT INTO DEPARTMENT VALUES (30, 'SALES');
+INSERT INTO DEPARTMENT VALUES (40, 'OPERATIONS');
+```
+
+### Output
+
+| DEPTNO | DNAME       |
+|--------|------------|
+| 10     | RESEARCH   |
+| 20     | ACCOUNTING |
+| 30     | SALES      |
+| 40     | OPERATIONS |
+
+---
+
+# Step 5: Insert Values into EMPLOYEE Table
+
+### Query
+```sql
+INSERT INTO EMPLOYEE VALUES (7369,'SMITH','CLERK',7902,'1980-12-17',800,NULL,20);
+INSERT INTO EMPLOYEE VALUES (7499,'ALLEN','SALESMAN',7698,'1981-02-20',1600,300,30);
+INSERT INTO EMPLOYEE VALUES (7521,'WARD','SALESMAN',7698,'1981-02-22',1250,300,30);
+INSERT INTO EMPLOYEE VALUES (7566,'JONES','MANAGER',7839,'1981-04-02',2975,NULL,20);
+INSERT INTO EMPLOYEE VALUES (7654,'MARTIN','SALESMAN',7698,'1981-09-28',1250,1400,30);
+INSERT INTO EMPLOYEE VALUES (7698,'BLAKE','MANAGER',7839,'1981-05-01',2850,NULL,30);
+INSERT INTO EMPLOYEE VALUES (7782,'CLARK','MANAGER',7839,'1981-06-09',2450,NULL,20);
+INSERT INTO EMPLOYEE VALUES (7788,'SCOTT','ANALYST',7566,'1982-12-09',3000,NULL,40);
+INSERT INTO EMPLOYEE VALUES (7839,'KING','PRESIDENT',NULL,'1981-11-17',5000,NULL,20);
+INSERT INTO EMPLOYEE VALUES (7844,'TURNER','SALESMAN',7698,'1981-09-08',1500,0,30);
+INSERT INTO EMPLOYEE VALUES (7876,'ADAMS','CLERK',7788,'1983-01-12',1100,NULL,20);
+INSERT INTO EMPLOYEE VALUES (7900,'JAMES','CLERK',7698,'1981-12-03',950,NULL,30);
+INSERT INTO EMPLOYEE VALUES (7902,'FORD','ANALYST',7566,'1981-12-03',3000,NULL,20);
+INSERT INTO EMPLOYEE VALUES (7934,'MILLER','CLERK',7782,'1982-01-23',1300,NULL,10);
+```
+
+### Output  
+14 rows inserted successfully.
+
+---
+
+# Step 6: Display Records
+
+### Query
+```sql
+SELECT * FROM EMPLOYEE;
+```
+
+###Output
+
++-------+--------+-----------+------+------------+------+------+--------+
+| empno | ename  | job       | mgr  | hiredate   | sal  | comm | deptno |
++-------+--------+-----------+------+------------+------+------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  880 | NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600 |  300 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250 |  500 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-04-02 | 3273 | NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250 | 1400 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 3135 | NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2695 | NULL |     20 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3300 | NULL |     40 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-11-17 | 5500 | NULL |     20 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500 |    0 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1210 | NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 | 1045 | NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3300 | NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1430 | NULL |     10 |
++-------+--------+-----------+------+------------+------+------+--------+
+---
+
+## Conclusion  
+Database `2CSE18_0151` and required tables were successfully created with constraints and data inserted.

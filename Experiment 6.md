@@ -179,7 +179,7 @@ SELECT CURTIME();
 ### Output
 ```text
 +--------------+
-| current_time |
+| CURTIME() 
 +--------------+
 | 14:30:00     |
 +--------------+

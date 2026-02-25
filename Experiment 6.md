@@ -173,7 +173,7 @@ SELECT DATE_ADD('2026-02-25', INTERVAL (6 - WEEKDAY('2026-02-25')) DAY);
 
 ### Query
 ```sql
-SELECT '14:30:00' AS current_time;
+SELECT CURTIME();
 ```
 
 ### Output

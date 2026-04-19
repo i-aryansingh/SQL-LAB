@@ -1,4 +1,4 @@
-# DBMS Lab – Experiment 6
+# DBMS Lab – Experiment 8
 
 ## Aim  
 To perform JOIN operations on EMPLOYEE, DEPARTMENT and SALGRADE tables.

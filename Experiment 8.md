@@ -10,7 +10,7 @@ Perform the following queries using EMPLOYEE, DEPARTMENT and SALGRADE tables.
 
 ---
 
-# Question No 1: Display all employees with their department name
+# Question No 1: Display all employees with their department name.
 
 ### Query
 ```sql
@@ -42,7 +42,7 @@ SELECT e.ename,d.dname FROM employee e JOIN department d ON e.deptno=d.deptno;
 
 ---
 
-# Question No 2: Display employees whose manager is JONES
+# Question No 2: Display those employees whose manager name is JONES, and also display their manager name.
 
 ### Query
 ```sql
@@ -62,7 +62,7 @@ SELECT e.ename,m.ename FROM employee e JOIN employee m ON e.mgr=m.empno WHERE m.
 
 ---
 
-# Question No 3: Employee name, job, dept name, manager name and grade
+# Question No 3: Display employee name, his job, his department name, his manager name, and his grade, and arrange the output department-wise.
 
 ### Query
 ```sql
@@ -94,7 +94,7 @@ SELECT e.ename,e.job,d.dname,m.ename,s.grade FROM employee e JOIN department d O
 
 ---
 
-# Question No 4: Employees except clerk with grade and department (highest salary first)
+# Question No 4: List out all the employees name, job, and salary grade and department name for everyone in the company except 'CLERK', and sort the output on salary displaying the highest salary first.
 
 ### Query
 ```sql
@@ -122,7 +122,7 @@ SELECT e.ename,e.job,s.grade,d.dname FROM employee e JOIN department d ON e.dept
 
 ---
 
-# Question No 5: Employee name, job and manager (including no manager)
+# Question No 5: Display employee name, his job, and his manager, and also display employees who are without a manager.
 
 ### Query
 ```sql
@@ -136,7 +136,7 @@ SELECT e.ename,e.job,IFNULL(m.ename,'NO MANAGER') FROM employee e LEFT JOIN empl
 
 ---
 
-# Question No 6: Employees earning 36000 per year or not clerks
+# Question No 6: List the employee name, job, annual salary, department number, department name, and grade who earn 36000 a year or who are not clerks.
 
 ### Query
 ```sql
@@ -150,7 +150,7 @@ SELECT e.ename,e.job,e.sal*12,e.deptno,d.dname,s.grade FROM employee e JOIN depa
 
 ---
 
-# Question No 7: Employees earning 30000 per year and not clerks
+# Question No 7: List the employee name, job, annual salary, department number, department name, and grade who earn 30000 per year and who are not clerks.
 
 ### Query
 ```sql
@@ -164,7 +164,7 @@ SELECT e.ename,e.job,e.sal*12,e.deptno,d.dname,s.grade FROM employee e JOIN depa
 
 ---
 
-# Question No 8: Employee and manager name and number
+# Question No 8: List out all employees by name and number along with their manager’s name and number, and also display 'NO MANAGER' for employees who have no manager.
 
 ### Query
 ```sql
@@ -178,7 +178,7 @@ SELECT e.ename,e.empno,IFNULL(m.ename,'NO MANAGER'),IFNULL(m.empno,'') FROM empl
 
 ---
 
-# Question No 9: Department name, department number and total salary
+# Question No 9: Select department name, department number, and sum of salary.
 
 ### Query
 ```sql
@@ -200,7 +200,7 @@ SELECT d.dname,d.deptno,SUM(e.sal) FROM employee e JOIN department d ON e.deptno
 
 ---
 
-# Question No 10: Employee number, name and department location
+# Question No 10: Display employee number, employee name, and location of the department in which he is working.
 
 ### Query
 ```sql
@@ -214,7 +214,7 @@ SELECT e.empno,e.ename,d.location FROM employee e JOIN department d ON e.deptno=
 
 ---
 
-# Question No 11: Employee name and department name
+# Question No 11: Display employee name and department name for each employee.
 
 ### Query
 ```sql

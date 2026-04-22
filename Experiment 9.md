@@ -10,7 +10,7 @@ Perform the following queries using EMPLOYEE and DEPARTMENT tables.
 
 ---
 
-# Question No 1: Display the name of employee who earns highest salary
+# Question No 1: Display the name of employee who earns the highest salary.
 
 ### Query
 ```sql
@@ -29,7 +29,7 @@ SELECT ename FROM employee WHERE sal=(SELECT MAX(sal) FROM employee);
 
 ---
 
-# Question No 2: Display employee number and name of clerk earning highest salary
+# Question No 2: Display the employee number and name of employee working as clerk and earning the highest salary among clerks.
 
 ### Query
 ```sql
@@ -48,7 +48,7 @@ SELECT empno,ename FROM employee WHERE job='CLERK' AND sal=(SELECT MAX(sal) FROM
 
 ---
 
-# Question No 3: Display names of salesman earning more than highest clerk salary
+# Question No 3: Display the names of the salesman who earn a salary more than the highest salary of any clerk.
 
 ### Query
 ```sql
@@ -68,7 +68,7 @@ SELECT ename FROM employee WHERE job='SALESMAN' AND sal>(SELECT MAX(sal) FROM em
 
 ---
 
-# Question No 4: Display clerks earning more than JAMES and less than SCOTT
+# Question No 4: Display the names of clerks who earn a salary more than that of JAMES and less than that of SCOTT.
 
 ### Query
 ```sql
@@ -88,7 +88,7 @@ SELECT ename FROM employee WHERE job='CLERK' AND sal>(SELECT sal FROM employee W
 
 ---
 
-# Question No 5: Display employees earning more than JAMES or more than SCOTT
+# Question No 5: Display the names of employees who earn a salary more than that of JAMES or a salary greater than that of SCOTT.
 
 ### Query
 ```sql
@@ -118,7 +118,7 @@ SELECT ename FROM employee WHERE sal>(SELECT sal FROM employee WHERE ename='JAME
 
 ---
 
-# Question No 6: Display employees earning highest salary in their departments
+# Question No 6: Display the names of the employees who earn the highest salary in their respective departments.
 
 ### Query
 ```sql
@@ -140,7 +140,7 @@ SELECT ename FROM employee e WHERE sal=(SELECT MAX(sal) FROM employee WHERE dept
 
 ---
 
-# Question No 7: Display employees earning highest salary in their job groups
+# Question No 7: Display the names of employees who earn the highest salaries in their respective job groups.
 
 ### Query
 ```sql
@@ -164,7 +164,7 @@ SELECT ename FROM employee e WHERE sal=(SELECT MAX(sal) FROM employee WHERE job=
 
 ---
 
-# Question No 8: Display employees working in ACCOUNTING department
+# Question No 8: Display the employee names who are working in the ACCOUNTING department.
 
 ### Query
 ```sql
@@ -183,7 +183,7 @@ SELECT ename FROM employee WHERE deptno=(SELECT deptno FROM department WHERE dna
 
 ---
 
-# Question No 9: Display employees working in CHICAGO
+# Question No 9: Display the employee names who are working in CHICAGO.
 
 ### Query
 ```sql
@@ -207,7 +207,7 @@ SELECT ename FROM employee WHERE deptno=(SELECT deptno FROM department WHERE loc
 
 ---
 
-# Question No 10: Display job groups having total salary greater than max salary of managers
+# Question No 10: Display the job groups having total salary greater than the maximum salary for managers.
 
 ### Query
 ```sql

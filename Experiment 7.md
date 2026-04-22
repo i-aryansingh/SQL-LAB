@@ -10,11 +10,11 @@ Perform the following queries.
 
 ---
 
-# Question No 1: Compute the number of days remaining in this year
+# Question No 1: Compute the number of days remaining in the current year
 
 ### Query
 ```sql
-SELECT DATEDIFF(CONCAT(YEAR(CURDATE()),'-12-31'),CURDATE()) AS remaining_days;
+SELECT DATEDIFF(CONCAT(YEAR(CURDATE()),'-12-31'), CURDATE()) AS remaining_days;
 ```
 
 ### Output
@@ -24,11 +24,12 @@ Output will vary depending on current date
 
 ---
 
-# Question No 2: Highest salary, lowest salary and their difference
+# Question No 2: Find the highest salary, lowest salary, and the difference between them
 
 ### Query
 ```sql
-SELECT MAX(sal) AS max_sal,MIN(sal) AS min_sal,MAX(sal)-MIN(sal) AS difference FROM employee;
+SELECT MAX(sal) AS max_sal, MIN(sal) AS min_sal, MAX(sal)-MIN(sal) AS difference
+FROM employee;
 ```
 
 ### Output
@@ -43,11 +44,13 @@ SELECT MAX(sal) AS max_sal,MIN(sal) AS min_sal,MAX(sal)-MIN(sal) AS difference F
 
 ---
 
-# Question No 3: Employees whose commission is greater than 25% of salary
+# Question No 3: List the employees whose commission is greater than 25% of their salary
 
 ### Query
 ```sql
-SELECT ename FROM employee WHERE comm>0.25*sal;
+SELECT ename
+FROM employee
+WHERE comm > 0.25 * sal;
 ```
 
 ### Output
@@ -64,11 +67,12 @@ SELECT ename FROM employee WHERE comm>0.25*sal;
 
 ---
 
-# Question No 4: Display salary in dollar format
+# Question No 4: Create a query that displays salary in dollar format
 
 ### Query
 ```sql
-SELECT ename,CONCAT('$',sal) AS salary FROM employee;
+SELECT ename, CONCAT('$', sal) AS salary
+FROM employee;
 ```
 
 ### Output
@@ -96,11 +100,17 @@ SELECT ename,CONCAT('$',sal) AS salary FROM employee;
 
 ---
 
-# Question No 5: Matrix query for job and salary based on department
+# Question No 5: Create a matrix query to display the job, salary based on department number, and total salary for each job
 
 ### Query
 ```sql
-SELECT job,SUM(CASE WHEN deptno=10 THEN sal END) AS Dept10,SUM(CASE WHEN deptno=20 THEN sal END) AS Dept20,SUM(CASE WHEN deptno=30 THEN sal END) AS Dept30,SUM(sal) AS Total FROM employee GROUP BY job;
+SELECT job,
+       SUM(CASE WHEN deptno = 10 THEN sal END) AS Dept10,
+       SUM(CASE WHEN deptno = 20 THEN sal END) AS Dept20,
+       SUM(CASE WHEN deptno = 30 THEN sal END) AS Dept30,
+       SUM(sal) AS Total
+FROM employee
+GROUP BY job;
 ```
 
 ### Output
@@ -119,11 +129,16 @@ SELECT job,SUM(CASE WHEN deptno=10 THEN sal END) AS Dept10,SUM(CASE WHEN deptno=
 
 ---
 
-# Question No 6: Total employees and count hired in each year
+# Question No 6: Display total employees and number of employees hired in 1980, 1981, 1982, and 1983
 
 ### Query
 ```sql
-SELECT COUNT(*) AS total,SUM(YEAR(hiredate)=1980) AS y1980,SUM(YEAR(hiredate)=1981) AS y1981,SUM(YEAR(hiredate)=1982) AS y1982,SUM(YEAR(hiredate)=1983) AS y1983 FROM employee;
+SELECT COUNT(*) AS total,
+       SUM(YEAR(hiredate) = 1980) AS y1980,
+       SUM(YEAR(hiredate) = 1981) AS y1981,
+       SUM(YEAR(hiredate) = 1982) AS y1982,
+       SUM(YEAR(hiredate) = 1983) AS y1983
+FROM employee;
 ```
 
 ### Output
@@ -138,11 +153,12 @@ SELECT COUNT(*) AS total,SUM(YEAR(hiredate)=1980) AS y1980,SUM(YEAR(hiredate)=19
 
 ---
 
-# Question No 7: Last Sunday of current month
+# Question No 7: Write a query to find the last Sunday of the current month
 
 ### Query
 ```sql
-SELECT DATE_SUB(LAST_DAY(CURDATE()),INTERVAL (DAYOFWEEK(LAST_DAY(CURDATE()))-1) DAY) AS last_sunday;
+SELECT DATE_SUB(LAST_DAY(CURDATE()),
+INTERVAL (DAYOFWEEK(LAST_DAY(CURDATE())) - 1) DAY) AS last_sunday;
 ```
 
 ### Output
@@ -152,11 +168,13 @@ Output will vary depending on current date
 
 ---
 
-# Question No 8: Department number and total employees
+# Question No 8: Display department numbers and total number of employees in each department
 
 ### Query
 ```sql
-SELECT deptno,COUNT(*) AS total_emp FROM employee GROUP BY deptno;
+SELECT deptno, COUNT(*) AS total_emp
+FROM employee
+GROUP BY deptno;
 ```
 
 ### Output
@@ -174,11 +192,13 @@ SELECT deptno,COUNT(*) AS total_emp FROM employee GROUP BY deptno;
 
 ---
 
-# Question No 9: Jobs and total employees in each job
+# Question No 9: Display jobs and total number of employees in each job group
 
 ### Query
 ```sql
-SELECT job,COUNT(*) AS total_emp FROM employee GROUP BY job;
+SELECT job, COUNT(*) AS total_emp
+FROM employee
+GROUP BY job;
 ```
 
 ### Output
@@ -197,11 +217,13 @@ SELECT job,COUNT(*) AS total_emp FROM employee GROUP BY job;
 
 ---
 
-# Question No 10: Department number and total salary
+# Question No 10: Display department numbers and total salary for each department
 
 ### Query
 ```sql
-SELECT deptno,SUM(sal) AS total_sal FROM employee GROUP BY deptno;
+SELECT deptno, SUM(sal) AS total_sal
+FROM employee
+GROUP BY deptno;
 ```
 
 ### Output
